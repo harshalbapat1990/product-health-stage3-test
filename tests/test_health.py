@@ -46,3 +46,13 @@ def test_negative_bug_count_does_not_increase_score():
     )
 
     assert calculate_health_score(metrics) == 100.0
+
+from src.health import health_summary
+
+
+def test_health_summary():
+    result = health_summary(50)
+
+    assert result["score"] == 50
+    assert result["status"] == "critical"
+    assert result["requires_attention"] is True
