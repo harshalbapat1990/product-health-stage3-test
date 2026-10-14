@@ -1,0 +1,21 @@
+name: Failure Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  intentional-failure:
+    name: Simulate failed pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Explain test
+        run: |
+          echo "This workflow intentionally fails."
+          echo "It is only for testing pipeline monitoring."
+
+      - name: Generate failure
+        run: exit 1
