@@ -48,3 +48,14 @@ def classify_health(score: float) -> str:
         return "warning"
 
     return "critical"
+
+def health_summary(score: float) -> dict:
+    """Return a summary for a health score."""
+
+    status = classify_health(score)
+
+    return {
+        "score": score,
+        "status": status,
+        "requires_attention": status != "healthy",
+    }
