@@ -23,3 +23,12 @@ def get_project_health() -> dict:
 
 if __name__ == "__main__":
     print(get_project_health())
+
+def get_project_metadata() -> dict:
+    """Return representative project metadata."""
+
+    return {
+        "team": "Platform Engineering",
+        "environment": "sandbox",
+        "criticality": "medium",
+    }
